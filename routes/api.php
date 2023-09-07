@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-
+    Route::post('register', [RegisterController::class, "store"]);
     Route::post('login', [AuthController::class, 'login']);
     Route::delete('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
