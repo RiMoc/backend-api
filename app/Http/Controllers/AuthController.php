@@ -13,7 +13,7 @@ class AuthController extends Controller
     }
 
     public function login(){
-        $credentials = request(['email', 'password']);
+        $credentials = request(['username', 'password']);
 
         $token_validate = (24*60);
         $this->guard()->factory()->setTTL($token_validate);
@@ -24,6 +24,7 @@ class AuthController extends Controller
     
     public function user_data() { 
         return response()->json([
+            "username" => auth()->user()->username,
             "id" => auth()->user()->id,
             "name" => auth()->user()->name,
             "email" => auth()->user()->email 
