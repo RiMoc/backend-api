@@ -21,6 +21,15 @@ class UserSeeder extends Seeder
             'name' => "Surin Matharin",
             'email' => "surin.2543.matharin@gmail.com",
             'password' => Hash::make("0874669133zA!"),
-        ])->assignRole('dev')->givePermissionTo('edit all');
+        ])
+        ->assignRole('admin');
+
+        User::create([
+            'username' => "RiMoc1",
+            'name' => "Surin Matharin",
+            'email' => "surin.2543.matharin@outlook.com",
+            'password' => Hash::make("0874669133zA!"),
+        ])
+        ->assignRole('user');
     }
 }
